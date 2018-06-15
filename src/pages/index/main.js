@@ -8,7 +8,10 @@ export default {
     'usingComponents': {
       'i-button': '../../static/iview/button/index',
       'i-tabs': '../../static/iview/tabs/index',
-      'i-message': '../../static/iview/message/index'
-    }
+      'i-message': '../../static/iview/message/index',
+      'i-tab-bar': '../../static/iview/tab-bar/index',
+      'i-tab-bar-item': '../../static/iview/tab-bar-item/index'
+    },
+    navigationBarTitleText: '王一宁的家'
   }
 }

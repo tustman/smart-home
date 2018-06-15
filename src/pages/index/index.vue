@@ -1,7 +1,6 @@
 <template>
-  <div class="container">
-    <i-button :type="buttonType" @click="handleClick" shape="circle" size="large">{{buttonValue}}</i-button>
-    <i-message id="message" />
+  <div class="home-container">
+    这里是我的内容
   </div>
 </template>
 
@@ -15,9 +14,8 @@ export default {
     return {
       buttonType: 'error',
       buttonValue: '关机',
-      motto: 'Hello World',
-      current: 'tab1',
-      userInfo: {}
+      userInfo: {},
+      currentInfo: 'homepage'
     }
   },
 
@@ -26,6 +24,9 @@ export default {
   },
 
   methods: {
+    handleChange (data) {
+      this.currentInfo = data.mp.detail.key
+    },
     handleClick () {
       if (this.buttonType === 'success') {
         $Message({content: '电视已开机', type: 'success'})
@@ -66,4 +67,7 @@ export default {
 </script>
 
 <style scoped>
+  .home-container{
+    background-color: #A7A3A0;
+  }
 </style>

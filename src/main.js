@@ -14,9 +14,36 @@ export default {
     pages: ['pages/logs/main', '^pages/index/main'],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
+      navigationBarBackgroundColor: '#A7A3A0',
       navigationBarTitleText: 'Smart Home',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: '#FFFFFF'
+    },
+    tabBar: {
+      color: '#999999',
+      selectedColor: '#00BC9C',
+      borderStyle: 'black',
+      backgroundColor: '#F7F7F7',
+      list: [{
+        pagePath: 'pages/index/main',
+        iconPath: '/static/image/std_tab_icon_my_device_normal.png',
+        selectedIconPath: '/static/image/std_tab_icon_my_device_selected.png',
+        text: '米家'
+      }, {
+        pagePath: 'pages/logs/main',
+        iconPath: '/static/image/std_tab_icon_shop_normal.png',
+        selectedIconPath: '/static/image/std_tab_icon_shop_selected.png',
+        text: '有品'
+      }, {
+        pagePath: 'pages/index/main',
+        iconPath: '/static/image/std_tab_icon_scene_normal.png',
+        selectedIconPath: '/static/image/std_tab_icon_scene_selected.png',
+        text: '智能'
+      }, {
+        pagePath: 'pages/logs/main',
+        iconPath: '/static/image/std_tab_icon_my_centernormal.png',
+        selectedIconPath: '/static/image/std_tab_icon_my_center_selected.png',
+        text: '我的'
+      }]
     }
   }
 }
