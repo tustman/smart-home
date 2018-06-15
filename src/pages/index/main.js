@@ -10,7 +10,11 @@ export default {
       'i-tabs': '../../static/iview/tabs/index',
       'i-message': '../../static/iview/message/index',
       'i-tab-bar': '../../static/iview/tab-bar/index',
-      'i-tab-bar-item': '../../static/iview/tab-bar-item/index'
+      'i-tab-bar-item': '../../static/iview/tab-bar-item/index',
+      'i-row': '../../static/iview/row/index',
+      'i-col': '../../static/iview/col/index',
+      'zan-row': '../../static/zan/row/index',
+      'zan-col': '../../static/zan/col/index'
     },
     navigationBarTitleText: '王一宁的家'
   }

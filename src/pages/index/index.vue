@@ -1,6 +1,25 @@
 <template>
   <div class="home-container">
-    这里是我的内容
+
+    <div class="header-info">
+
+      <div class="weather_info">
+        <div offset="1" span="5" class="weather_info_1">
+          <span class="weather_temp">24</span>
+          <span class="weather_temp_unit"> ℃</span>
+        </div>
+        <div span="6" class="weather_info_2">
+          <div class="address">北京·朝阳</div>
+          <div class="weather_info_text">阴</div>
+        </div>
+      </div>
+      <div class="weather_info">
+        <span class="weather_info_text_2">室外空气 良 | 周边水质 不可直饮 | 环境湿度 潮湿</span>
+      </div>
+
+    </div>
+
+
   </div>
 </template>
 
@@ -67,7 +86,48 @@ export default {
 </script>
 
 <style scoped>
-  .home-container{
+  .address {
+    font-size: 12px;
+    color: #ffffff;
+  }
+
+  .home-container {
     background-color: #A7A3A0;
+  }
+
+  .weather_info {
+    height: 50px;
+    margin-left: 20px;
+  }
+  .weather_info_1 {
+    display: inline-block;
+    height: 50px;
+  }
+
+  .weather_info_2 {
+    display: inline-block;
+    height: 50px;
+    margin-left: 10px;
+  }
+  .weather_info_text {
+    font-size: 12px;
+    display: block;
+    color: #ffffff;
+  }
+  .weather_info_text_2 {
+    margin-top: 5px;
+    font-size: 12px;
+    display: block;
+    color: #ffffff;
+  }
+
+  .weather_temp {
+    font-size: 44px;
+    color: #ffffff;
+  }
+
+  .weather_temp_unit {
+    font-size: 12px;
+    color: #ffffff;
   }
 </style>
