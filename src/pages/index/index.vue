@@ -36,17 +36,6 @@ export default {
         this.buttonValue = '开机'
         this.buttonType = 'success'
       }
-      wx.vibrateShort({
-        success: (res) => {
-          console.log(res)
-        },
-        fail: (res) => {
-          console.log(res)
-        },
-        complete: (res) => {
-          console.log(res)
-        }
-      })
     },
     bindViewTap () {
       const url = '../logs/main'
