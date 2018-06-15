@@ -1,36 +1,22 @@
 <template>
-  <div class="container" @click="clickHandle('test click', $event)">
-
-    <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
-    </div>
-
-    <i-button type="primary" bind:click="handleClick">这是一个按钮</i-button>
-
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <form class="form-container">
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+  <div class="container">
+    <i-button :type="buttonType" @click="handleClick" shape="circle" size="large">{{buttonValue}}</i-button>
+    <i-message id="message" />
   </div>
 </template>
 
 <script>
 import card from '@/components/card'
 
+const {$Message} = require('../../../static/iview/base/index')
+
 export default {
   data () {
     return {
+      buttonType: 'error',
+      buttonValue: '关机',
       motto: 'Hello World',
+      current: 'tab1',
       userInfo: {}
     }
   },
@@ -41,7 +27,26 @@ export default {
 
   methods: {
     handleClick () {
-
+      if (this.buttonType === 'success') {
+        $Message({content: '电视已开机', type: 'success'})
+        this.buttonValue = '关机'
+        this.buttonType = 'error'
+      } else if (this.buttonType === 'error') {
+        $Message({content: '电视已关机', type: 'success'})
+        this.buttonValue = '开机'
+        this.buttonType = 'success'
+      }
+      wx.vibrateShort({
+        success: (res) => {
+          console.log(res)
+        },
+        fail: (res) => {
+          console.log(res)
+        },
+        complete: (res) => {
+          console.log(res)
+        }
+      })
     },
     bindViewTap () {
       const url = '../logs/main'
@@ -72,39 +77,4 @@ export default {
 </script>
 
 <style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 150px;
-}
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-
-.counter {
-  display: inline-block;
-  margin: 10px auto;
-  padding: 5px 10px;
-  color: blue;
-  border: 1px solid blue;
-}
 </style>

@@ -6,7 +6,9 @@ app.$mount()
 export default {
   config: {
     'usingComponents': {
-      'i-button': '../../static/button/index'
+      'i-button': '../../static/iview/button/index',
+      'i-tabs': '../../static/iview/tabs/index',
+      'i-message': '../../static/iview/message/index'
     }
   }
 }
