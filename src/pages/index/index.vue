@@ -19,6 +19,11 @@
 
     </div>
 
+    <div class="main-content">
+      <div class="room-list"></div>
+      <div class="room-device"></div>
+    </div>
+
 
   </div>
 </template>
@@ -86,12 +91,36 @@ export default {
 </script>
 
 <style scoped>
+  .main-content{
+    padding: 5px;
+  }
+  .room-list{
+    display: inline-block;
+    position: absolute;
+    width: 18%;
+    height: 75%;
+    background-color: #FCFCFC;
+    border-radius: 5px;
+  }
+
+  .room-device {
+    display: inline-block;
+    position: absolute;
+    margin-left: 19%;
+    width: 78%;
+    height: 75%;
+    background-color: #FCFCFC;
+    border-radius: 5px;
+  }
   .address {
     font-size: 12px;
     color: #ffffff;
   }
 
   .home-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background-color: #A7A3A0;
   }
 
