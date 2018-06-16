@@ -112,10 +112,6 @@ export default {
     background-color: #FCFCFC;
     border-radius: 5px;
   }
-  .address {
-    font-size: 12px;
-    color: #ffffff;
-  }
 
   .home-container {
     position: absolute;
@@ -137,6 +133,10 @@ export default {
     display: inline-block;
     height: 50px;
     margin-left: 10px;
+  }
+  .address {
+    font-size: 12px;
+    color: #ffffff;
   }
   .weather_info_text {
     font-size: 12px;
