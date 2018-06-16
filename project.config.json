@@ -42,6 +42,12 @@
 					"name": "个人资料页面",
 					"pathName": "pages/my/person/main",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "语音控制页面",
+					"pathName": "pages/my/voice/main",
+					"query": ""
 				}
 			]
 		}

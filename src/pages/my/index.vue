@@ -67,7 +67,7 @@
           <i-grid-item>
 
             <i-grid-icon>
-              <image class="grid-image" src="/static/image/std_person_center_icon_my_shop.png"/>
+              <image class="grid-image" src="/static/image/personal_profile_icon_comsumptive.png"/>
             </i-grid-icon>
             <i-grid-label class="grid-text"><span class="grid-text">生活耗材</span></i-grid-label>
 
@@ -83,7 +83,7 @@
           </i-grid-item>
 
 
-          <i-grid-item>
+          <i-grid-item @click="handleVoice">
 
             <i-grid-icon>
               <image class="grid-image" src="/static/image/std_person_center_voice_icon.png"/>
@@ -129,6 +129,11 @@ export default {
     handlerAvatarClick () {
       wx.navigateTo({
         url: '/pages/my/person/main'
+      })
+    },
+    handleVoice () {
+      wx.navigateTo({
+        url: '/pages/my/voice/main'
       })
     },
     handleChange (data) {

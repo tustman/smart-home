@@ -16,7 +16,8 @@ export default {
       'pages/shop/main',
       'pages/scene/main',
       'pages/my/main',
-      'pages/my/person/main'
+      'pages/my/person/main',
+      'pages/my/voice/main'
     ],
     window: {
       backgroundTextStyle: 'light',
