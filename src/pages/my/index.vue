@@ -1,26 +1,21 @@
 <template>
   <div class="my-container">
-    <i-panel>
+    <i-panel @click="handlerAvatarClick">
       <div class="title-panel">
-
         <div>
           <i-avatar class="my-avatar" src="../../../static/image/avatar.jpg" size="large"></i-avatar>
         </div>
-
         <div class="my-title-info">
           <span class="address">王一宁</span>
           <span class="weather_info_text">8个智能设备</span>
         </div>
-
         <div class="my-title-info-more">
           >
         </div>
-
       </div>
     </i-panel>
 
-
-    <i-panel>
+    <i-panel class="cell-panel-demo">
       <i-cell>
         <i-grid>
 
@@ -100,14 +95,22 @@
       </i-cell>
     </i-panel>
 
+    <i-panel class="cell-panel-demo">
+      <i-cell-group>
+        <i-cell title="我的微信小程序" is-link></i-cell>
+        <i-cell title="我的商城" is-link></i-cell>
+        <i-cell title="论坛" is-link></i-cell>
+        <i-cell title="帮助与反馈" is-link></i-cell>
+        <i-cell title="设置" is-link></i-cell>
+      </i-cell-group>
+    </i-panel>
+    <i-message id="message" />
   </div>
 </template>
 
 <script>
 import card from '@/components/card'
-
 const {$Message} = require('../../../static/iview/base/index')
-
 export default {
   data () {
     return {
@@ -123,6 +126,11 @@ export default {
   },
 
   methods: {
+    handlerAvatarClick () {
+      wx.navigateTo({
+        url: '/pages/my/person/main'
+      })
+    },
     handleChange (data) {
       this.currentInfo = data.mp.detail.key
     },
@@ -166,6 +174,10 @@ export default {
 </script>
 
 <style scoped>
+  .cell-panel-demo{
+    display: block;
+    margin-top: 10px;
+  }
   .title-panel{
     display: flex;
     padding-top: 20px;

@@ -24,7 +24,7 @@
       <div class="room-device"></div>
     </div>
 
-
+    <i-message id="message" />
   </div>
 </template>
 

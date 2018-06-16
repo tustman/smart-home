@@ -25,6 +25,8 @@ export default {
       'i-panel': '../../static/iview/panel/index'
     },
     navigationBarTitleText: '我的',
-    navigationBarBackgroundColor: '#FFF'
+    navigationBarBackgroundColor: '#FFF',
+    navigationBarTextStyle: 'black',
+    backgroundTextStyle: 'black'
   }
 }

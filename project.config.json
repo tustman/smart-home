@@ -34,7 +34,14 @@
 				{
 					"id": -1,
 					"name": "我的页面",
-					"pathName": "pages/my/main"
+					"pathName": "pages/my/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人资料页面",
+					"pathName": "pages/my/person/main",
+					"query": ""
 				}
 			]
 		}
