@@ -1,6 +1,6 @@
 <view bindtap="handleTap" class="i-class i-cell {{ isLastCell ? 'i-cell-last' : '' }} {{ isLink ? 'i-cell-access' : '' }}">
-    <view class="i-cell-icon">
-        <slot name="icon"></slot>
+    <view wx:if="{{ image }}" class="i-cell-icon">
+        <image class="i-cell-image" src="{{ image }}"></image>
     </view>
     <view class="i-cell-bd">
         <view wx:if="{{ title }}" class="i-cell-text">{{ title }}</view>

@@ -17,6 +17,9 @@ Component({
   },
 
   properties: {
+    image: {
+      type: String
+    },
     // 左侧标题
     title: {
       type: String

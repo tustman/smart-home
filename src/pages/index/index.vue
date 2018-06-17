@@ -39,7 +39,7 @@
           </view>
         </div>
 
-        <i-cell title="米家台灯" label="已开灯">
+        <i-cell title="米家台灯" label="已开灯" image="/static/image/device_list_yeelight_real.png">
           <i-switch :value="switchValue" @change="handleChangeDevice" slot="footer">
             <i-icon type="right"></i-icon>
             <i-icon type="close"></i-icon>
