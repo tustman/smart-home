@@ -27,7 +27,7 @@ export default {
       'i-toast': '../../static/iview/toast/index',
       'zan-tab': '../../static/zan/tab/index'
     },
-    navigationBarTitleText: '',
+    navigationBarTitleText: '智能场景',
     navigationBarBackgroundColor: '#FFF',
     navigationBarTextStyle: 'black',
     backgroundTextStyle: 'black'

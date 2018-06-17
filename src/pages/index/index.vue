@@ -9,7 +9,7 @@
         </div>
         <div span="6" class="weather_info_2">
           <div class="address">北京·朝阳</div>
-          <div class="weather_info_text">阴</div>
+          <div class="weather_info_text">多云</div>
         </div>
       </div>
       <div class="weather_info">
@@ -20,12 +20,12 @@
     <div class="main-content">
       <div class="room-list">
         <i-tab-bar :current="currentInfo" @change="handleChange">
-          <i-tab-bar-item key="common" icon="homepage" current-icon="homepage_fill" title="常用"></i-tab-bar-item>
-          <i-tab-bar-item key="bedroom" icon="group" current-icon="group_fill" title="卧室"></i-tab-bar-item>
-          <i-tab-bar-item key="living" icon="remind" current-icon="remind_fill" title="客厅"></i-tab-bar-item>
-          <i-tab-bar-item key="kitchen" icon="mine" current-icon="mine_fill" title="厨房"></i-tab-bar-item>
-          <i-tab-bar-item key="nearby" icon="mine" current-icon="mine_fill" title="附近"></i-tab-bar-item>
-          <i-tab-bar-item key="setting" icon="mine" current-icon="mine_fill" title="设置"></i-tab-bar-item>
+          <i-tab-bar-item key="common" icon="collection" current-icon="collection_fill" title="常用"></i-tab-bar-item>
+          <i-tab-bar-item key="bedroom" icon="clock" current-icon="clock_fill" title="卧室"></i-tab-bar-item>
+          <i-tab-bar-item key="living" icon="homepage" current-icon="homepage_fill" title="客厅"></i-tab-bar-item>
+          <i-tab-bar-item key="kitchen" icon="task" current-icon="task_fill" title="厨房"></i-tab-bar-item>
+          <i-tab-bar-item key="nearby" icon="share" current-icon="share_fill" title="附近"></i-tab-bar-item>
+          <i-tab-bar-item key="setting" icon="setup" current-icon="setup_fill" title="设置"></i-tab-bar-item>
         </i-tab-bar>
       </div>
       <div class="room-device">
@@ -57,8 +57,9 @@ export default {
   },
 
   methods: {
-    handleChange (data) {
+    handleChange(data) {
       this.currentInfo = data.mp.detail.key
+      console.log('2018年6月17日19:16:14---->', this.currentInfo)
     },
     handleClick () {
       if (this.buttonType === 'success') {

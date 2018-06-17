@@ -1,6 +1,6 @@
 .i-tab-bar {
   display: flex;
-  height: 80%;
+  height: 70%;
   box-sizing: border-box;
   position: relative;
   justify-content: space-around;
