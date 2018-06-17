@@ -19,14 +19,14 @@
       <i-cell>
         <i-grid>
 
-          <i-grid-item i-class="grid-item">
+          <i-grid-item @click="handleToast">
             <i-grid-icon>
               <image class="grid-image" src="/static/image/std_person_center_icon_scene.png"/>
             </i-grid-icon>
             <i-grid-label><span class="grid-text">品味</span></i-grid-label>
           </i-grid-item>
 
-          <i-grid-item>
+          <i-grid-item @click="handleToast">
 
             <i-grid-icon>
               <image class="grid-image" src="/static/image/std_person_center_icon_share_device.png"/>
@@ -35,7 +35,7 @@
 
           </i-grid-item>
 
-          <i-grid-item>
+          <i-grid-item @click="handleToast">
 
             <i-grid-icon>
               <image class="grid-image" src="/static/image/std_person_center_icon_family.png"/>
@@ -45,7 +45,7 @@
           </i-grid-item>
 
 
-          <i-grid-item>
+          <i-grid-item @click="handleToast" >
 
             <i-grid-icon>
               <image class="grid-image" src="/static/image/std_person_center_icon_experience.png"/>
@@ -55,7 +55,7 @@
           </i-grid-item>
         </i-grid>
         <i-grid>
-          <i-grid-item>
+          <i-grid-item @click="handleToast">
 
             <i-grid-icon>
               <image class="grid-image" src="/static/image/std_person_center_icon_ble_gateway.png"/>
@@ -64,7 +64,7 @@
 
           </i-grid-item>
 
-          <i-grid-item>
+          <i-grid-item @click="handleToast">
 
             <i-grid-icon>
               <image class="grid-image" src="/static/image/personal_profile_icon_comsumptive.png"/>
@@ -73,7 +73,7 @@
 
           </i-grid-item>
 
-          <i-grid-item>
+          <i-grid-item @click="handleToast">
 
             <i-grid-icon>
               <image class="grid-image" src="/static/image/std_person_center_icon_water.png"/>
@@ -97,20 +97,21 @@
 
     <i-panel class="cell-panel-demo">
       <i-cell-group>
-        <i-cell title="我的微信小程序" is-link></i-cell>
-        <i-cell title="我的商城" is-link></i-cell>
-        <i-cell title="论坛" is-link></i-cell>
-        <i-cell title="帮助与反馈" is-link></i-cell>
-        <i-cell title="设置" is-link></i-cell>
+        <i-cell title="我的微信小程序" @click="handleToast" is-link></i-cell>
+        <i-cell title="我的商城" @click="handleToast" is-link></i-cell>
+        <i-cell title="论坛" @click="handleToast" is-link></i-cell>
+        <i-cell title="帮助与反馈" @click="handleToast" is-link></i-cell>
+        <i-cell title="设置" @click="handleToast" is-link></i-cell>
       </i-cell-group>
     </i-panel>
     <i-message id="message" />
+    <i-toast id="toast" />
   </div>
 </template>
 
 <script>
 import card from '@/components/card'
-const {$Message} = require('../../../static/iview/base/index')
+const {$Message, $Toast} = require('../../../static/iview/base/index')
 export default {
   data () {
     return {
@@ -126,6 +127,11 @@ export default {
   },
 
   methods: {
+    handleToast () {
+      $Toast({
+        content: '该功能还未实现'
+      })
+    },
     handlerAvatarClick () {
       wx.navigateTo({
         url: '/pages/my/person/main'

@@ -6,6 +6,11 @@ app.$mount()
 
 export default {
   config: {
-    navigationBarTitleText: '查看启动日志'
+    navigationBarTitleText: '有品',
+    'usingComponents': {
+      'i-button': '../../static/iview/button/index',
+      'i-spin': '../../static/iview/spin/index',
+      'i-icon': '../../static/iview/icon/index'
+    }
   }
 }
