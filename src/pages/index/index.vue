@@ -46,24 +46,6 @@
           </i-switch>
         </i-cell>
 
-        <!--<i-cell title="智能灯泡" label="已开灯" image="/static/image/device_list_yeelight_real.png">-->
-          <!--<i-switch :value="switchValue" @change="handleChangeDevice" slot="footer">-->
-            <!--<i-icon type="right"></i-icon>-->
-            <!--<i-icon type="close"></i-icon>-->
-          <!--</i-switch>-->
-        <!--</i-cell>-->
-        <!--<i-cell title="米家台灯" label="已关灯" image="/static/image/pms1.jpg">-->
-          <!--<i-switch :value="switchValue1" @change="handleChangeDevice1" slot="footer">-->
-            <!--<i-icon type="right"></i-icon>-->
-            <!--<i-icon type="close"></i-icon>-->
-          <!--</i-switch>-->
-        <!--</i-cell>-->
-        <!--<i-cell title="米家电饭煲" label="设备在线" image="/static/image/pms2.png">-->
-        <!--</i-cell>-->
-
-        <!--<i-cell title="小米空气净化器" label="设备离线" image="/static/image/pms3.png">-->
-        <!--</i-cell>-->
-
       </div>
     </div>
 
@@ -79,7 +61,39 @@ const {$Message} = require('../../../static/iview/base/index')
 export default {
   data () {
     return {
-      deviceList: [
+      deviceList: [],
+      current: '小爱同学',
+      switchValue: true,
+      switchValue1: true,
+      switchValue2: true,
+      buttonType: 'error',
+      buttonValue: '关机',
+      userInfo: {},
+      currentInfo: 'common',
+      currentCount: 1,
+      currentRoom: '常用'
+    }
+  },
+  components: {
+    card
+  },
+  created () {
+    this.handleChange()
+  },
+  methods: {
+    handleChange(data) {
+      if (data) {
+        this.currentInfo = data.mp.detail.key
+      } else {
+        this.currentInfo = 'common'
+      }
+      this.currentRoom = this.getCurrentRoom(this.currentInfo)
+      if (this.currentInfo === 'nearby' || this.currentInfo === 'setting') {
+        this.deviceList = []
+        return
+      }
+
+      let deviceList = [
         {
           title: '智能灯泡',
           image: '/static/image/device_list_yeelight_real.png',
@@ -103,27 +117,31 @@ export default {
           title: '小米空气净化器',
           image: '/static/image/pms3.png',
           label: '设备离线'
+        },
+        {
+          title: '米家扫地机器人',
+          image: '/static/image/pms4.jpg',
+          label: '设备在线'
+        },
+        {
+          title: '米家恒温电水壶',
+          image: '/static/image/pms5.jpg',
+          label: '设备在线'
+        },
+        {
+          title: '小米盒子3',
+          image: '/static/image/pms6.jpg',
+          label: '热播大片:归去来'
         }
-      ],
-      current: '小爱同学',
-      switchValue: true,
-      switchValue1: true,
-      switchValue2: true,
-      buttonType: 'error',
-      buttonValue: '关机',
-      userInfo: {},
-      currentInfo: 'common',
-      currentCount: 1,
-      currentRoom: '常用'
-    }
-  },
-  components: {
-    card
-  },
-  methods: {
-    handleChange (data) {
-      this.currentInfo = data.mp.detail.key
-      this.currentRoom = this.getCurrentRoom(this.currentInfo)
+      ]
+      let countSize = Math.random() * deviceList.length
+      let tempDeviceList = []
+      for (let i = 0; i <= Math.floor(countSize / 2); i++) {
+        let count = Math.random() * deviceList.length
+        var index = Math.floor(count)
+        tempDeviceList.push(deviceList[index])
+      }
+      this.deviceList = tempDeviceList
     },
     handleChangeDevice (device) {
       device.value = !device.value
@@ -150,7 +168,7 @@ export default {
         bedroom: '卧室',
         living: '客厅',
         kitchen: '厨房',
-        nearby: '附件',
+        nearby: '附近',
         setting: '设置'
       }
       return rooomInfo[roomType]
@@ -185,11 +203,6 @@ export default {
     clickHandle (msg, ev) {
       console.log('clickHandle:', msg, ev)
     }
-  },
-
-  created () {
-    // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
   }
 }
 </script>
