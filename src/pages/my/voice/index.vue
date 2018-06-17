@@ -11,7 +11,7 @@
 
     <i-panel v-if="switchValue" class="cell-panel-demo" title="语音服务提供商">
       <i-radio-group :current="current" @change="handleFruitChange">
-        <i-radio v-for="(item, index) in fruit" position="right" :key="item.id" :value="item.name">
+        <i-radio color="#00BC9C" v-for="(item, index) in fruit" position="right" :key="item.id" :value="item.name">
         </i-radio>
       </i-radio-group>
     </i-panel>

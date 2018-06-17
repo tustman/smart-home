@@ -1,6 +1,12 @@
 <template>
-  <div class="my-container">
-    <zan-tab :list="tab.list" :selectedId="tab.selectedId" @tabchange="handleChange" />
+  <div class="counter-warp">
+
+    <i-tabs :current="current" @change="handleChange" color="#00BC9C">
+      <i-tab key="tab1" title="推荐"></i-tab>
+      <i-tab key="tab2" title="我的"></i-tab>
+      <i-tab key="tab3" title="日志"></i-tab>
+    </i-tabs>
+
   </div>
 </template>
 
@@ -11,19 +17,8 @@ import store from './store'
 export default {
   data () {
     return {
-      tab: {
-        list: [{
-          id: 1,
-          title: '推荐'
-        }, {
-          id: 2,
-          title: '我的'
-        }, {
-          id: 3,
-          title: '日志'
-        }],
-        selectedId: 1
-      }
+      current: 'tab1',
+      current_scroll: 'tab1'
     }
   },
   computed: {
@@ -33,7 +28,7 @@ export default {
   },
   methods: {
     handleChange (data) {
-      console.log('2018年6月17日17:33:46---->', data.mp.detail)
+      this.current = data.mp.detail.key
     },
     increment () {
       store.commit('increment')
