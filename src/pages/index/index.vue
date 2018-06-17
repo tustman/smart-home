@@ -35,16 +35,34 @@
             <span>{{currentRoom}}</span>
           </view>
           <view style="font-size: 10px;margin-left: 5px;color: #999999;display: inline-block">
-            <span>{{currentCount}}个设备</span>
+            <span>{{deviceList.length}}个设备</span>
           </view>
         </div>
 
-        <i-cell title="米家台灯" label="已开灯" image="/static/image/device_list_yeelight_real.png">
-          <i-switch :value="switchValue" @change="handleChangeDevice" slot="footer">
+        <i-cell v-for="(item, index) in deviceList" :title="item.title" :label="item.label" :image="item.image">
+          <i-switch v-if="item.isSwitch" :value="item.value" @change="handleChangeDevice(item)" slot="footer">
             <i-icon type="right"></i-icon>
             <i-icon type="close"></i-icon>
           </i-switch>
         </i-cell>
+
+        <!--<i-cell title="智能灯泡" label="已开灯" image="/static/image/device_list_yeelight_real.png">-->
+          <!--<i-switch :value="switchValue" @change="handleChangeDevice" slot="footer">-->
+            <!--<i-icon type="right"></i-icon>-->
+            <!--<i-icon type="close"></i-icon>-->
+          <!--</i-switch>-->
+        <!--</i-cell>-->
+        <!--<i-cell title="米家台灯" label="已关灯" image="/static/image/pms1.jpg">-->
+          <!--<i-switch :value="switchValue1" @change="handleChangeDevice1" slot="footer">-->
+            <!--<i-icon type="right"></i-icon>-->
+            <!--<i-icon type="close"></i-icon>-->
+          <!--</i-switch>-->
+        <!--</i-cell>-->
+        <!--<i-cell title="米家电饭煲" label="设备在线" image="/static/image/pms2.png">-->
+        <!--</i-cell>-->
+
+        <!--<i-cell title="小米空气净化器" label="设备离线" image="/static/image/pms3.png">-->
+        <!--</i-cell>-->
 
       </div>
     </div>
@@ -61,8 +79,36 @@ const {$Message} = require('../../../static/iview/base/index')
 export default {
   data () {
     return {
+      deviceList: [
+        {
+          title: '智能灯泡',
+          image: '/static/image/device_list_yeelight_real.png',
+          isSwitch: true,
+          label: '已开灯',
+          value: true
+        },
+        {
+          title: '米家台灯',
+          image: '/static/image/pms1.jpg',
+          isSwitch: true,
+          label: '已关灯',
+          value: false
+        },
+        {
+          title: '米家电饭煲',
+          image: '/static/image/pms2.png',
+          label: '设备在线'
+        },
+        {
+          title: '小米空气净化器',
+          image: '/static/image/pms3.png',
+          label: '设备离线'
+        }
+      ],
       current: '小爱同学',
       switchValue: true,
+      switchValue1: true,
+      switchValue2: true,
       buttonType: 'error',
       buttonValue: '关机',
       userInfo: {},
@@ -71,20 +117,32 @@ export default {
       currentRoom: '常用'
     }
   },
-
   components: {
     card
   },
-
   methods: {
     handleChange (data) {
       this.currentInfo = data.mp.detail.key
       this.currentRoom = this.getCurrentRoom(this.currentInfo)
-      console.log('2018年6月17日19:16:14---->', this.currentInfo)
     },
-    handleChangeDevice (data) {
-      this.switchValue = data.mp.detail.value
-      console.log('2018年6月17日19:16:14---->', this.switchValue)
+    handleChangeDevice (device) {
+      device.value = !device.value
+      this.getStatus(device)
+    },
+    getStatus (device) {
+      let status = ''
+      if (!device) {
+        device.label = status
+        return
+      }
+      if (device.isSwitch) {
+        if (device.value) {
+          status = '已开灯'
+        } else {
+          status = '已关灯'
+        }
+      }
+      device.label = status
     },
     getCurrentRoom (roomType) {
       let rooomInfo = {
