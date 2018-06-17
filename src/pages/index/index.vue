@@ -1,8 +1,7 @@
 <template>
   <div class="home-container">
 
-    <div class="header-info">
-
+    <div class="header-content">
       <div class="weather_info">
         <div offset="1" span="5" class="weather_info_1">
           <span class="weather_temp">24</span>
@@ -16,12 +15,22 @@
       <div class="weather_info">
         <span class="weather_info_text_2">室外空气 良 | 周边水质 不可直饮 | 环境湿度 潮湿</span>
       </div>
-
     </div>
 
     <div class="main-content">
-      <div class="room-list"></div>
-      <div class="room-device"></div>
+      <div class="room-list">
+        <i-tab-bar :current="currentInfo" @change="handleChange">
+          <i-tab-bar-item key="common" icon="homepage" current-icon="homepage_fill" title="常用"></i-tab-bar-item>
+          <i-tab-bar-item key="bedroom" icon="group" current-icon="group_fill" title="卧室"></i-tab-bar-item>
+          <i-tab-bar-item key="living" icon="remind" current-icon="remind_fill" title="客厅"></i-tab-bar-item>
+          <i-tab-bar-item key="kitchen" icon="mine" current-icon="mine_fill" title="厨房"></i-tab-bar-item>
+          <i-tab-bar-item key="nearby" icon="mine" current-icon="mine_fill" title="附近"></i-tab-bar-item>
+          <i-tab-bar-item key="setting" icon="mine" current-icon="mine_fill" title="设置"></i-tab-bar-item>
+        </i-tab-bar>
+      </div>
+      <div class="room-device">
+
+      </div>
     </div>
 
     <i-message id="message" />
@@ -39,7 +48,7 @@ export default {
       buttonType: 'error',
       buttonValue: '关机',
       userInfo: {},
-      currentInfo: 'homepage'
+      currentInfo: 'common'
     }
   },
 
@@ -91,33 +100,45 @@ export default {
 </script>
 
 <style scoped>
-  .main-content{
-    padding: 5px;
-  }
-  .room-list{
-    display: inline-block;
-    position: absolute;
-    width: 18%;
-    height: 75%;
-    background-color: #FCFCFC;
-    border-radius: 5px;
-  }
-
-  .room-device {
-    display: inline-block;
-    position: absolute;
-    margin-left: 19%;
-    width: 78%;
-    height: 75%;
-    background-color: #FCFCFC;
-    border-radius: 5px;
-  }
 
   .home-container {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: #A7A3A0;
+  }
+
+  .header-content {
+    position: relative;
+    width: 100%;
+    height: 20%;
+  }
+  .main-content{
+    position: relative;
+    display: flex;
+    align-content: flex-start;
+    width: 100%;
+    height: 80%;
+  }
+  .room-list{
+    display: inline-block;
+    position: relative;
+    width: 15%;
+    height: 95%;
+    margin-left: 5px;
+    background-color: #FCFCFC;
+    border-radius: 5px;
+  }
+
+  .room-device {
+    display: inline-block;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100%;
+    height: 95%;
+    background-color: #FCFCFC;
+    border-radius: 5px;
   }
 
   .weather_info {
