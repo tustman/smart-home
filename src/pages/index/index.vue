@@ -19,7 +19,7 @@
 
     <div class="main-content">
       <div class="room-list">
-        <i-tab-bar :current="currentInfo" @change="handleChange">
+        <i-tab-bar :current="currentInfo" color="#00BC9C" @change="handleChange">
           <i-tab-bar-item key="common" icon="collection" current-icon="collection_fill" title="常用"></i-tab-bar-item>
           <i-tab-bar-item key="bedroom" icon="clock" current-icon="clock_fill" title="卧室"></i-tab-bar-item>
           <i-tab-bar-item key="living" icon="homepage" current-icon="homepage_fill" title="客厅"></i-tab-bar-item>
