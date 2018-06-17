@@ -32,7 +32,7 @@
         <div style="border: 0 solid #e9eaec; border-bottom-width: 1px;">
           <view
             style="padding-left:12px;padding-top:12px;padding-bottom:12px;font-size: 16px;color: #666666;display: inline-block">
-            <span>{{currentInfo=='common'?'常用':'其它'}}</span>
+            <span>{{currentRoom}}</span>
           </view>
           <view style="font-size: 10px;margin-left: 5px;color: #999999;display: inline-block">
             <span>{{currentCount}}个设备</span>
@@ -67,7 +67,8 @@ export default {
       buttonValue: '关机',
       userInfo: {},
       currentInfo: 'common',
-      currentCount: 1
+      currentCount: 1,
+      currentRoom: '常用'
     }
   },
 
@@ -78,11 +79,23 @@ export default {
   methods: {
     handleChange (data) {
       this.currentInfo = data.mp.detail.key
+      this.currentRoom = this.getCurrentRoom(this.currentInfo)
       console.log('2018年6月17日19:16:14---->', this.currentInfo)
     },
     handleChangeDevice (data) {
       this.switchValue = data.mp.detail.value
       console.log('2018年6月17日19:16:14---->', this.switchValue)
+    },
+    getCurrentRoom (roomType) {
+      let rooomInfo = {
+        common: '常用',
+        bedroom: '卧室',
+        living: '客厅',
+        kitchen: '厨房',
+        nearby: '附件',
+        setting: '设置'
+      }
+      return rooomInfo[roomType]
     },
     handleClick () {
       if (this.buttonType === 'success') {

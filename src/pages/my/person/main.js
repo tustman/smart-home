@@ -13,8 +13,6 @@ export default {
       'i-tab-bar-item': '../../../static/iview/tab-bar-item/index',
       'i-row': '../../../static/iview/row/index',
       'i-col': '../../../static/iview/col/index',
-      'zan-row': '../../../static/zan/row/index',
-      'zan-col': '../../../static/zan/col/index',
       'i-grid': '../../../static/iview/grid/index',
       'i-grid-item': '../../../static/iview/grid-item/index',
       'i-grid-icon': '../../../static/iview/grid-icon/index',
