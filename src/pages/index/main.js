@@ -23,7 +23,9 @@ export default {
       'i-cell-group': '../../static/iview/cell-group/index',
       'i-cell': '../../static/iview/cell/index',
       'i-panel': '../../static/iview/panel/index',
-      'i-toast': '../../static/iview/toast/index'
+      'i-toast': '../../static/iview/toast/index',
+      'i-switch': '../../static/iview/switch/index',
+      'i-icon': '../../static/iview/icon/index'
     },
     navigationBarTitleText: '王一宁的家'
   }

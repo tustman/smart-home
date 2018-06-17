@@ -29,6 +29,22 @@
         </i-tab-bar>
       </div>
       <div class="room-device">
+        <div style="border: 0 solid #e9eaec; border-bottom-width: 1px;">
+          <view
+            style="padding-left:12px;padding-top:12px;padding-bottom:12px;font-size: 16px;color: #666666;display: inline-block">
+            <span>{{currentInfo=='common'?'常用':'其它'}}</span>
+          </view>
+          <view style="font-size: 10px;margin-left: 5px;color: #999999;display: inline-block">
+            <span>{{currentCount}}个设备</span>
+          </view>
+        </div>
+
+        <i-cell title="米家台灯" label="已开灯">
+          <i-switch :value="switchValue" @change="handleChangeDevice" slot="footer">
+            <i-icon type="right"></i-icon>
+            <i-icon type="close"></i-icon>
+          </i-switch>
+        </i-cell>
 
       </div>
     </div>
@@ -45,10 +61,13 @@ const {$Message} = require('../../../static/iview/base/index')
 export default {
   data () {
     return {
+      current: '小爱同学',
+      switchValue: true,
       buttonType: 'error',
       buttonValue: '关机',
       userInfo: {},
-      currentInfo: 'common'
+      currentInfo: 'common',
+      currentCount: 1
     }
   },
 
@@ -57,9 +76,13 @@ export default {
   },
 
   methods: {
-    handleChange(data) {
+    handleChange (data) {
       this.currentInfo = data.mp.detail.key
       console.log('2018年6月17日19:16:14---->', this.currentInfo)
+    },
+    handleChangeDevice (data) {
+      this.switchValue = data.mp.detail.value
+      console.log('2018年6月17日19:16:14---->', this.switchValue)
     },
     handleClick () {
       if (this.buttonType === 'success') {
