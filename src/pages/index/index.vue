@@ -39,8 +39,8 @@
           </view>
         </div>
 
-        <i-cell v-for="(item, index) in deviceList" :title="item.title" :label="item.label" :image="item.image">
-          <i-switch v-if="item.isSwitch" :value="item.value" @change="handleChangeDevice(item)" slot="footer">
+        <i-cell v-for="(item, index) in deviceList" :key="item.value" :title="item.title" :label="item.label" :image="item.image">
+          <i-switch v-if="item.isSwitch"  :value="item.value" @change="handleChangeDevice(item)" slot="footer">
             <i-icon type="right"></i-icon>
             <i-icon type="close"></i-icon>
           </i-switch>
@@ -81,7 +81,7 @@ export default {
     this.handleChange()
   },
   methods: {
-    handleChange(data) {
+    handleChange (data) {
       if (data) {
         this.currentInfo = data.mp.detail.key
       } else {

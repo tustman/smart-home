@@ -6,7 +6,7 @@
           <i-avatar class="my-avatar" src="../../../static/image/avatar.jpg" size="large"></i-avatar>
         </div>
         <div class="my-title-info">
-          <span class="address">王一宁</span>
+          <span class="address">王小宁</span>
           <span class="weather_info_text">8个智能设备</span>
         </div>
         <div class="my-title-info-more">

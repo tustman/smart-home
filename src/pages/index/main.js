@@ -25,6 +25,6 @@ export default {
       'i-switch': '../../static/iview/switch/index',
       'i-icon': '../../static/iview/icon/index'
     },
-    navigationBarTitleText: '王一宁的家'
+    navigationBarTitleText: '王小宁的家'
   }
 }
