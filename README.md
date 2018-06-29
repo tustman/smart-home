@@ -2,7 +2,7 @@
   本项目是参照米家App布局和配色, 基于[mpvue](http://mpvue.com/), [iview](https://weapp.iviewui.com/), [zanui](https://www.youzanyun.com/zanui)编写的一个小程序代码,项目只编写了几个有代表性的页面,用于交流学习.
 
 # 效果
-  ![](https://github.com/tustman/smart-home/blob/master/screenshot/000.jpg)
+  ![](https://github.com/tustman/smart-home/blob/master/screenshot/000.gif)
 
 
 # smart-home
